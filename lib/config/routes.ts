@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express'
 import * as cheeses from '../controllers/cheeses'
+import * as auth from '../controllers/auth'
 
 export const router: Router = Router()
 
@@ -13,3 +14,6 @@ router.route('/cheeses/:id')
   .get(cheeses.showRoute)
   .put(cheeses.updateRoute)
   .delete(cheeses.deleteRoute)
+
+router.post('/register', auth.registerRoute)
+router.post('/login', auth.loginRoute)
